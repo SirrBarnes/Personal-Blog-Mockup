@@ -10,12 +10,14 @@ toggle.addEventListener('click', function() {
   
   if (themeMode.classList.contains('dark')) {
     themeMode.setAttribute('class', 'light');
-    // aside.setAttribute('style', 'background: linear-gradient(var(--light-accent), var(#0f104b), var(--dark-accent);)')
+    document.documentElement.style.setProperty('--circle-color', '#ffb100');
     localStorage.setItem('themeMode', 'light');
+    toggle.textContent = "☀️";
   } else {
     themeMode.setAttribute('class', 'dark');
-    //aside.setAttribute('--circle-color', '#ffb100')
+    document.documentElement.style.setProperty('--circle-color', '#19408a');
     localStorage.setItem('themeMode', 'dark');
+    toggle.textContent = "🌙";
   }
 });
 
@@ -36,19 +38,7 @@ function storeLocalStorage(object) {
   formData.push(object);
   
   localStorage.setItem('formItems', JSON.stringify(formData));
-  
-}
-
-function storeTheme() {
-  if (themeMode.classList.contains('dark')) {
-    localStorage.setItem('themeMode', 'dark');
-    themeMode.setAttribute('class', 'dark');
-  } else {
-    localStorage.setItem('themeMode', 'light');
-    themeMode.setAttribute('class', 'light');
-  }
-}
-
+}  
 
 // ! Use the following function whenever you need to redirect to a different page
 
@@ -58,3 +48,33 @@ const redirectPage = function (url) {
   redirectURL = url;
   location.assign(url);
 };
+
+
+
+
+
+
+// document.getElementById("check").onclick = function() {
+//   let allAreFilled = true;
+//   document.getElementById("myForm").querySelectorAll("[required]").forEach(function(i) {
+//     if (!allAreFilled){ 
+//       return;
+//     }
+//     if (i.type === "radio") {
+//       let radioValueCheck = false;
+//       document.getElementById("myForm").querySelectorAll(`[name=${i.name}]`).forEach(function(r) {
+//         if (r.checked) {
+//           radioValueCheck = true;
+//         }
+//       })
+//       allAreFilled = radioValueCheck;
+//       return;
+//     }
+//     if (!i.value) { 
+//       allAreFilled = false;  return; 
+//     }
+//   })
+//   if (!allAreFilled) {
+//     alert('Fill all the fields');
+//   }
+// };

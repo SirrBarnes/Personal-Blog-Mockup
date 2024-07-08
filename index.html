@@ -15,9 +15,9 @@
 
 <body class = 'light'>
   <!-- TODO: Create landing page elements -->
-  <header class = 'header'>
-    <button id = 'toggle'>Toggle</button>
-  </header>
+  <nav class = 'header'>
+    <button id = 'toggle'>☀️</button>
+  </nav>
 
   <main class = 'header'>
     <aside>
@@ -25,19 +25,20 @@
     </aside> 
 
     <section>
-      <form>
+      <form name = "form1">
         <label for = 'username'>Username</label> 
-        <input type = 'text' id = 'username' required>
+        <input type = 'text' id = 'username'>
 
         <label for = 'title'>Title</label>
-        <input type = 'text' id = 'title' required>
+        <input type = 'text' id = 'title'>
 
         <label for = 'content'>Content</label>
-        <textarea id = 'content' required></textarea>
+        <textarea id = 'content'></textarea>
 
-        <input type = 'submit'>
+        <p id = 'error'>error</p>
+
+        <input type = 'submit' value = 'Submit'>
       </form>
-      <div id = 'error'></div>
     </section>
 
   </main>
