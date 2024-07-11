@@ -4,19 +4,31 @@ const backButt = document.querySelector('#back')
 
 // TODO: Create a function that builds an element and appends it to the DOM
 function buildElement() {
-    
+    const formData = readLocalStorage();
+    console.log(formData);
 
-    const art = document.createElement('article');
-    const head = document.createElement('h2');
-    const block = document.createElement('blockquote');
-    const par = document.createElement('p');
+    for (let i = 0; i < formData.length; i++) {
+        let art = document.createElement('article');
+        let head = document.createElement('h2');
+        let block = document.createElement('blockquote');
+        let par = document.createElement('p');
 
-    mainEl.appendChild(art);
-    art.appendChild(head);
-    art.appendChild(block);
-    art.appendChild(par);
-    // mainEl.appendChild(el);
-    
+        let currentTitle = formData[i]['title'];
+        let currentContent = formData[i]['content'];
+        let currentUser = formData[i]['userName'];
+
+        art.classList.add('card');
+
+        head.textContent = currentTitle;
+        block.textContent = currentContent;
+        par.textContent = `Created by: ${currentUser}`;
+
+        art.appendChild(head);
+        art.appendChild(block);
+        art.appendChild(par);
+
+        mainEl.appendChild(art);
+    }
 }
 
 // TODO: Create a function that handles the case where there are no blog posts to display
@@ -27,7 +39,8 @@ function noBlogPost() {
 
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList() {
-    console.log(readLocalStorage());
+    const formData = readLocalStorage();
+
     if (formData !== null) {
         buildElement();
     } else {
