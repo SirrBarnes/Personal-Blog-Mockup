@@ -3,7 +3,7 @@ const toggle = document.querySelector('#toggle');
 const container = document.querySelector('.card')
 const aside = document.querySelector('aside');
 const themeMode = document.querySelector('body')
-
+let formData = [];
 
 toggle.addEventListener('click', function() {
   themeMode.setAttribute('class', localStorage.getItem('themeMode'));
@@ -34,8 +34,6 @@ function readLocalStorage (){
 
 // TODO: Create a function called `storeLocalStorage` that takes a given object and saves the new data to the existing blog data in local storage.
 function storeLocalStorage(object) {
-  const formData = [];
-
   formData.push(object);
   
   localStorage.setItem('formItems', JSON.stringify(formData));

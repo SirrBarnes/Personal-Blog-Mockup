@@ -4,18 +4,18 @@ const backButt = document.querySelector('#back')
 
 // TODO: Create a function that builds an element and appends it to the DOM
 function buildElement() {
-    const formData = readLocalStorage();
+    const formD = readLocalStorage();
     console.log(formData);
 
-    for (let i = 0; i < formData.length; i++) {
+    for (let i = 0; i < formD.length; i++) {
         let art = document.createElement('article');
         let head = document.createElement('h2');
         let block = document.createElement('blockquote');
         let par = document.createElement('p');
 
-        let currentTitle = formData[i]['title'];
-        let currentContent = formData[i]['content'];
-        let currentUser = formData[i]['userName'];
+        let currentTitle = formD[i]['title'];
+        let currentContent = formD[i]['content'];
+        let currentUser = formD[i]['userName'];
 
         art.classList.add('card');
 
@@ -39,9 +39,9 @@ function noBlogPost() {
 
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList() {
-    const formData = readLocalStorage();
+    const formD = readLocalStorage();
 
-    if (formData !== null) {
+    if (formD !== null) {
         buildElement();
     } else {
         noBlogPost();
