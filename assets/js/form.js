@@ -17,13 +17,13 @@ function formSubmission(event) {
   };
 
   if (userNameInput.value === '') {
-    errorMessage.textContent = 'Please enter User Name';
+    errorMessage.textContent = 'Please complete the form';
 
   } else if (titleInput.value === '') {
-    errorMessage.textContent = 'Please enter Title';
+    errorMessage.textContent = 'Please complete the form';
 
   } else if (contentInput.value === '') {
-    errorMessage.textContent = 'Please enter Content';
+    errorMessage.textContent = 'Please complete the form';
 
   } else {
     storeLocalStorage(formObj);
